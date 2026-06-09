@@ -469,11 +469,11 @@ export default function ExamPage() {
 
     const uid = userIdRef.current
     if (uid) {
-      supabase.from('logs').insert({
+      void supabase.from('logs').insert({
         exam_id: examId, user_id: uid, event_type: type,
         event_time: new Date().toISOString(),
         details: { strike: currentStrike, message: messages[type] },
-      }).then(()=>{}).catch(()=>{})
+      })
     }
 
     // ── FIX: auto-submit uses handleSubmitRef so it always calls the latest version
