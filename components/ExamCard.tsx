@@ -80,7 +80,7 @@ export default function ExamCard({ exam }: { exam: Exam }) {
           })}
         </p>
         {exam.status !== 'completed' && exam.scheduled_date && (
-          <CountdownTimer targetDate={exam.scheduled_date} />
+          <CountdownTimer scheduledDate={exam.scheduled_date} status={exam.status} />
         )}
       </div>
 
